@@ -1,0 +1,494 @@
+/* ==========================================================================
+   EVO CLEVER PHONE POINT - UNIVERSAL CORE STYLE SHEET
+   ========================================================================== */
+
+/* --- SYSTEM THEMES DESIGN SYSTEM --- */
+:root[data-theme="dark-blue"] {
+    --bg-universe: #060b13;
+    --bg-glass: rgba(13, 22, 38, 0.7);
+    --bg-inputs: #14213d;
+    --border-glow: rgba(0, 180, 216, 0.2);
+    --border-active: #00b4d8;
+    --text-main: #f8f9fa;
+    --text-muted: #90e0ef;
+    --accent-color: #00b4d8;
+    --accent-gradient: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    --liquid-wave: rgba(0, 180, 216, 0.3);
+}
+
+:root[data-theme="pure-dark"] {
+    --bg-universe: #000000;
+    --bg-glass: rgba(18, 18, 18, 0.75);
+    --bg-inputs: #262626;
+    --border-glow: rgba(255, 255, 255, 0.1);
+    --border-active: #ffffff;
+    --text-main: #ffffff;
+    --text-muted: #a3a3a3;
+    --accent-color: #ffffff;
+    --accent-gradient: linear-gradient(135deg, #a3a3a3 0%, #262626 100%);
+    --liquid-wave: rgba(255, 255, 255, 0.2);
+}
+
+:root[data-theme="royal-gold"] {
+    --bg-universe: #0d0b07;
+    --bg-glass: rgba(26, 22, 13, 0.8);
+    --bg-inputs: #261f10;
+    --border-glow: rgba(212, 175, 55, 0.25);
+    --border-active: #d4af37;
+    --text-main: #fffdf5;
+    --text-muted: #f3e5ab;
+    --accent-color: #d4af37;
+    --accent-gradient: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+    --liquid-wave: rgba(212, 175, 55, 0.35);
+}
+
+:root[data-theme="pure-white"] {
+    --bg-universe: #f4f6f9;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --bg-inputs: #e9ecef;
+    --border-glow: rgba(108, 117, 125, 0.15);
+    --border-active: #495057;
+    --text-main: #212529;
+    --text-muted: #495057;
+    --accent-color: #212529;
+    --accent-gradient: linear-gradient(135deg, #495057 0%, #212529 100%);
+    --liquid-wave: rgba(33, 37, 41, 0.15);
+}
+
+/* --- BASE UTILITIES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background 0.4s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-universe);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. LOGIN PAGE STYLES
+   ========================================================================== */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-universe {
+    width: 100%;
+    max-width: 1300px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    z-index: 10;
+}
+
+/* TOP CONTROLS */
+.top-utility-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.theme-switcher-rack {
+    display: flex;
+    gap: 8px;
+    background: var(--bg-glass);
+    padding: 6px;
+    border-radius: 30px;
+    border: 1px solid var(--border-glow);
+    backdrop-filter: blur(10px);
+}
+
+.theme-pill {
+    background: transparent;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.theme-pill .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.blue-dot { background: #00b4d8; }
+.dark-dot { background: #525252; }
+.gold-dot { background: #d4af37; }
+.white-dot { background: #ced4da; box-shadow: inset 0 0 2px rgba(0,0,0,0.5); }
+
+.theme-pill.active-pill {
+    background: var(--bg-inputs);
+    box-shadow: 0 0 10px var(--border-glow);
+}
+
+/* ====== SPINNING AMBASSADOR SHOWCASE ====== */
+.spinning-showcase-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.spinning-phone-wrapper {
+    width: 160px;
+    height: 280px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    animation: simuZunguka 8s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.phone-right {
+    animation-direction: reverse;
+}
+
+.spinning-phone-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes simuZunguka {
+    1% { transform: rotateY(0deg) translateY(1px); }
+    50% { transform: rotateY(180deg) translateY(-10px); }
+    100% { transform: rotateY(360deg) translateY(1px); }
+}
+
+/* BRAND HERO IN THE MIDDLE */
+.brand-hero-center {
+    text-align: center;
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.brand-evo-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 85px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text; /* Mstari huu hapa unamaliza tatizo */
+    -webkit-text-fill-color: transparent;
+    animation: pulseEvo 3s ease-in-out infinite;
+}
+
+.brand-sub-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.liquid-pulse-line {
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 15px var(--accent-color);
+    animation: kambaFuta 2s ease-in-out infinite;
+}
+
+@keyframes pulseEvo {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px transparent); }
+    50% { transform: scale(1.03); filter: drop-shadow(0 0 20px var(--border-glow)); }
+}
+@keyframes kambaFuta {
+    0%, 100% { width: 40px; opacity: 0.5; }
+    50% { width: 120px; opacity: 1; }
+}
+
+/* GLASS CARD LOGIN FORM */
+.login-card-glass {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 450px;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.card-header-flow {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-header-flow h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    color: var(--text-main);
+}
+
+.card-header-flow p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.evo-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.evo-input-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-glow-wrapper {
+    position: relative;
+}
+
+.evo-input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-inputs);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+}
+
+.evo-input-group input:focus {
+    border-color: var(--border-active);
+    box-shadow: 0 0 15px var(--border-glow);
+}
+
+/* ==========================================================================
+   2. LIQUID STAR BUTTONS (LIQUID LIQUID STYLE)
+   ========================================================================== */
+.liquid-star-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: var(--accent-gradient);
+    color: var(--bg-universe);
+    border: none;
+    border-radius: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px var(--border-glow);
+}
+
+.liquid-star-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px var(--border-glow);
+}
+
+/* Mabadiliko ya Liquid */
+.liquid-star-btn .liquid-wave {
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 400%;
+    background: var(--liquid-wave);
+    border-radius: 40%;
+    animation: wimbiLaMaji 6s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes wimbiLaMaji {
+    0% { transform: rotate(0deg); top: -100%; }
+    50% { top: -50%; }
+    100% { transform: rotate(360deg); top: -100%; }
+}
+
+.liquid-star-btn .btn-text {
+    position: relative;
+    z-index: 2;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* UTILITY BUTTONS LIKE LANG TOGGLE */
+.liquid-btn.text-btn {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glow);
+    color: var(--text-main);
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+.liquid-btn.text-btn:hover {
+    border-color: var(--border-active);
+    background: var(--bg-inputs);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .spinning-showcase-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .spinning-phone-wrapper {
+        display: none; /* Ficha simu kwenye vioo vidogo zisilete vurugu */
+    }
+    .brand-evo-title {
+        font-size: 60px;
+    }
+}
+/* ==========================================================================
+   LOADING SPLASH SCREEN - TAJIRI VERSION
+   ========================================================================== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-universe); /* Inafuata theme husika */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Inakaa juu ya kila kitu */
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+}
+
+.splash-content {
+    text-align: center;
+    position: relative;
+}
+
+.splash-logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: splashPulse 2s ease-in-out infinite;
+}
+
+.splash-loader-container {
+    width: 250px;
+    height: 4px;
+    background: var(--bg-inputs);
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-glow);
+}
+
+.splash-liquid-filler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; /* Inajazwa na JS */
+    background: var(--accent-gradient);
+    box-shadow: 0 0 15px var(--accent-color);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.splash-status-text {
+    margin-top: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+@keyframes splashPulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.3) drop-shadow(0 0 30px var(--border-glow)); }
+}
+
+/* Kuficha splash */
+.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+/* ==========================================================================
+   MABORESHO YA KUCHAPISHA RISITI PEKEE (MEDIA PRINT)
+   ========================================================================== */
+@media print {
+    /* 1. Ficha kila kitu kilichopo kwenye ukurasa */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* 2. Onyesha eneo la risiti tu na ulilazimishe kukaa juu kabisa kushoto */
+    #thermalReceiptZone, #thermalReceiptZone * {
+        visibility: visible;
+    }
+    
+    #thermalReceiptZone {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 80mm; /* Inalingana kabisa na upana wa karatasi za Thermal Printer */
+        box-shadow: none !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+    }
+
+    /* 3. Ficha vitu vya kero vya kivinjari kama link za chini ya peji na tarehe za juu */
+    @page {
+        margin: 0;
+    }
+}
